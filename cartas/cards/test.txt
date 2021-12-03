@@ -1,0 +1,44 @@
+CardSize = 6.3, 8.8
+
+LINK = Cards.xlsx
+
+HTMLIMAGE= ,_HA_, icons\attack\high.png, 0.3, 0.3, P
+HTMLIMAGE= ,_LA_, icons\attack\low.png, 0.3, 0.3, P
+HTMLIMAGE= ,_MA_, icons\attack\mid.png, 0.3, 0.3, P
+HTMLIMAGE= ,_AA_, icons\attack\any.png, 0.3, 0.3, P
+
+HTMLIMAGE= ,_HB_, icons\block\high.png, 0.3, 0.3, P
+HTMLIMAGE= ,_LB_, icons\block\low.png, 0.3, 0.3, P
+HTMLIMAGE= ,_MB_, icons\block\mid.png, 0.3, 0.3, P
+HTMLIMAGE= ,_AB_, icons\block\any.png, 0.3, 0.3, P
+
+HTMLIMAGE= ,_HM_, icons\move\high.png, 0.3, 0.3, P
+HTMLIMAGE= ,_LM_, icons\move\low.png, 0.3, 0.3, P
+HTMLIMAGE= ,_MM_, icons\move\mid.png, 0.3, 0.3, P
+HTMLIMAGE= ,_AM_, icons\move\any.png, 0.3, 0.3, P
+
+HTMLIMAGE= ,_HG_, icons\generic\high.png, 0.3, 0.3, P
+HTMLIMAGE= ,_LG_, icons\generic\low.png, 0.3, 0.3, P
+HTMLIMAGE= ,_MG_, icons\generic\mid.png, 0.3, 0.3, P
+HTMLIMAGE= ,_AG_, icons\generic\any.png, 0.3, 0.3, P
+
+HTMLIMAGE= ,_arrow_, icons\combo-arrow.png, 0.4, 0.4, P
+
+
+
+
+DPI = 300
+VISUAL=, 10, 10
+IMAGE="1-{(LAYOUT)}",[LAYOUT],{-1100/716}%,-0.2%,100%,100%
+IMAGE="1-{(ART)}",[ART],{4800/716}%,12.5%,{60900/716}%,42.8%,0,TP
+FONT=Arial,11,BT,#000000
+TEXT="1-{(NAME)}",[NAME],{6300/716}%,5.5%,{34300/716}%,5.3%,LEFT,CENTER
+HTMLFONT=MainFont,Arial,10,,#000000,CENTER
+HTMLTEXT="1-{(LINE TYPE FINAL)}",[LINE TYPE FINAL],{6600/716}%,56.6%,{57500/716}%,4.2%,#FFFFFF,0,T,100,MainFont
+HTMLFONT=Bodyfont,Arial,10,,#000000,CENTER
+HTMLMARGINS=Bodyfont,0,0,0,0,CENTER
+HTMLTEXT="1-{(TEXT DESCRIPTION)}",[TEXT DESCRIPTION],{5100/716}%,62.5%,{58900/716}%,27.1%,#FFFFFF,0,TE,100,Bodyfont
+TEXT="1-{(DAMAGE)}",[DAMAGE],4.33%,90.4%,{18800/716}%,5.6%
+TEXT="1-{(PIORITY)}",[PIORITY],{25300/716}%,90.4%,{18800/716}%,5.6%
+TEXT="1-{(MAX-COMBO)}",[MAX-COMBO],{47000/716}%,90.4%,{18800/716}%,5.6%
+ENDVISUAL
