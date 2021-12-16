@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\cardUI.cs" />
      <Compile Include="Assets\Scripts\mouseControl.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Programs/Unity_Hub/LTS/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
