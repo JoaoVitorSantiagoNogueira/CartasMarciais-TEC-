@@ -17,10 +17,14 @@ public class mouseControl : MonoBehaviour
         RaycastHit hit;
         if (Input.GetMouseButton(0))
         {   
-            Debug.Log(layerMask);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
-                Debug.Log(hit.transform.name);
+                Debug.Log("hit");
+                CardUI cu = (CardUI) hit.transform.gameObject.GetComponent<CardUI>();
+                if (cu != null)
+                {
+                   cu.startDrag(Input.mousePosition);
+                }
             }
         }
     }
