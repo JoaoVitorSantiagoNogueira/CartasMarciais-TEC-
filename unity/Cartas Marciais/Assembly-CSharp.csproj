@@ -36,8 +36,14 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CardUI.cs" />
-     <Compile Include="Assets\Scripts\cardZone.cs" />
+     <Compile Include="Assets\Scripts\EventController.cs" />
+     <Compile Include="Assets\Scripts\UI\CardUI.cs" />
+     <Compile Include="Assets\Scripts\UI\Deck.cs" />
+     <Compile Include="Assets\Scripts\UI\DiscardPile.cs" />
+     <Compile Include="Assets\Scripts\UI\cardZone.cs" />
+     <Compile Include="Assets\Scripts\UI\hand.cs" />
+     <Compile Include="Assets\Scripts\UI\playZone.cs" />
+     <Compile Include="Assets\Scripts\card.cs" />
      <Compile Include="Assets\Scripts\mouseControl.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Programs/Unity_Hub/LTS/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

@@ -19,11 +19,23 @@ public class mouseControl : MonoBehaviour
         {   
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
-                Debug.Log("hit");
-                CardUI cu = (CardUI) hit.transform.gameObject.GetComponent<CardUI>();
+                cardZone cu = (cardZone) hit.transform.gameObject.GetComponent<cardZone>();
                 if (cu != null)
                 {
-                   cu.startDrag(Input.mousePosition);
+                   cu.click();
+                }
+            }
+        }
+
+
+        if (Input.GetMouseButtonUp(0))
+        {   
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+            {
+                cardZone cu = (cardZone) hit.transform.gameObject.GetComponent<cardZone>();
+                if (cu != null)
+                {
+                   cu.release();
                 }
             }
         }
