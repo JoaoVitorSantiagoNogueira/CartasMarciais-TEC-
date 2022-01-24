@@ -5,12 +5,19 @@ using UnityEngine;
 public class playZone : cardZone
 {
 
-    bool rightPhase;
+    bool rightPhase = false;
 
     void Start()
     {
         cardCap = 1;
-        setPhase(false);
+        EventController.instance.onPlayPhaseStart += startPlay;
+        EventController.instance.onComboPhaseEnd   += stopPlay;
+    }
+
+    void Destroy()
+    {
+        EventController.instance.onPlayPhaseStart -= startPlay;
+        EventController.instance.onPlayPhaseEnd   -= stopPlay ;
     }
 
     public override void AddCard(card c)
@@ -48,7 +55,19 @@ public class playZone : cardZone
         if (p)
             GetComponent<Renderer>().material.SetColor ("_Color", Color.blue);
         else
+            {
             GetComponent<Renderer>().material.SetColor ("_Color", Color.red);
-
+            EventController.instance.discardCards(moveCardFrom(0));
+            }
     }
+
+    public void startPlay ()
+    {
+        setPhase(true);
+    }
+
+    public void stopPlay ()
+    {
+        setPhase (false);
+    } 
 }

@@ -8,6 +8,21 @@ public class Deck : hand
     
     public hand [] handSlots;
 
+    
+
+    public override void Start()
+    {
+        base.Start();
+        EventController.instance.onDrawPhaseStart += DealNewHand;
+    }
+
+    public void Destroy()
+    {
+        EventController.instance.onDrawPhaseStart -= DealNewHand;
+    }
+
+
+
     public void DealNewHand()
     {
         Debug.Log("DealNewHand");

@@ -5,6 +5,16 @@ using UnityEngine;
 public class DiscardPile : cardZone
 {
 
+    public void Start()
+    {
+        EventController.instance.onDiscardCards += AddCard;
+    }
+
+    public void Destroy()
+    {
+        EventController.instance.onDiscardCards -= AddCard;                
+    }
+
     public override void AddCard(card c)
     {
         c.transform.position = transform.position + Vector3.up*0.3f;

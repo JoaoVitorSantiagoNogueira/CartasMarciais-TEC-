@@ -40,11 +40,13 @@
      <Compile Include="Assets\Scripts\UI\CardUI.cs" />
      <Compile Include="Assets\Scripts\UI\Deck.cs" />
      <Compile Include="Assets\Scripts\UI\DiscardPile.cs" />
+     <Compile Include="Assets\Scripts\UI\buttonTextController.cs" />
      <Compile Include="Assets\Scripts\UI\cardZone.cs" />
      <Compile Include="Assets\Scripts\UI\hand.cs" />
      <Compile Include="Assets\Scripts\UI\playZone.cs" />
      <Compile Include="Assets\Scripts\card.cs" />
      <Compile Include="Assets\Scripts\mouseControl.cs" />
+     <Compile Include="Assets\Scripts\singleton.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Programs/Unity_Hub/LTS/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

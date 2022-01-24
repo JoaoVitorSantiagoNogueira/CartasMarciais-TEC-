@@ -8,7 +8,7 @@ public class hand : cardZone
   bool selectedToMove = false;
   float cameraDistance;
 
-  public void Start()
+  public virtual void Start()
   {
     cardCap = 1;
   }
