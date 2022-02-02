@@ -8,6 +8,7 @@ public class hand : cardZone
   bool selectedToMove = false;
   float cameraDistance;
 
+
   public virtual void Start()
   {
     cardCap = 1;
@@ -16,7 +17,7 @@ public class hand : cardZone
   {
     if (Input.GetMouseButtonUp(0) && selectedToMove)
         release();
-    if (selectedToMove)
+    if (selectedToMove && hasCard)
         {
             Vector3  dif =  Camera.main.ScreenToWorldPoint(Input.mousePosition+cameraDistance*Vector3.forward)-selectedMousePosition ;
             GetCard(0).transform.position = dif + basePosition;
@@ -24,40 +25,40 @@ public class hand : cardZone
   }
   public override void release ()
     {
-      if (hasCard && selectedToMove)
+      if (selectedToMove)
       {
-        int layerMask = LayerMask.GetMask("PlayerA");
-        Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-        RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
-            {
-                cardZone cz = (cardZone) hit.transform.gameObject.GetComponent<cardZone>();
-                if (cz != null)
-                {
-                  if (cz.hasSpace())
-                  {
-                   cz.AddCard(this.moveCardFrom(0));
-                   selectedToMove = false; 
-                   hasCard= false;
-                   return;
-                  }
-
-                }
-            }
-        // if not in a place where you can change zones return to base position
-        if (selectedToMove)
+        if (hasCard)
         {
-            Debug.Log("release");
-            selectedToMove = false; 
-            this.selectedMousePosition = Vector3.zero;
-            GetCard(0).transform.position = basePosition;
+          int layerMask = LayerMask.GetMask("PlayerA");
+          Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+          RaycastHit hit;
+              if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+              {
+                  cardZone cz = (cardZone) hit.transform.gameObject.GetComponent<cardZone>();
+                  if (cz != null)
+                  {
+                    if (cz.hasSpace())
+                    {
+                      selectedToMove = false; 
+                      hasCard= false;
+                      cz.AddCard(this.moveCardFrom(0));
+                      return;
+                    }
+
+                  }
+              }
         }
-      }
+          // if not in a place where you can change zones return to base position
+          Debug.Log("release");
+          selectedToMove = false; 
+              this.selectedMousePosition = Vector3.zero;
+              GetCard(0).transform.position = basePosition;
+        }
+      
     }
 
   public override void click ()
     {
-      Debug.Log(hasCard);
         if (!selectedToMove && hasCard)
         {
         Debug.Log("selected");
@@ -77,6 +78,16 @@ public class hand : cardZone
   public override void mouseOver ()
     {
         //adicionar caixa mostrar infomação
+    }
+
+    public void move (Vector3 v)
+    {
+      transform.position = v;
+      if (hasCard)
+      {
+        basePosition = GetCard(0).transform.position = v + Vector3.up*0.3f;
+      }
+      
     }
 
 }

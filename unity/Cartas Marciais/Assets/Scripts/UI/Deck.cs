@@ -26,12 +26,9 @@ public class Deck : hand
     public void DealNewHand()
     {
         Debug.Log("DealNewHand");
-        for (int i = 0; i < handSlots.Length; i++)
+        for (int i = 0; i < 3; i++)
         {
-            if (handSlots[i].hasSpace())
-            {
-                handSlots[i].AddCard(Instantiate(cardPref));
-            }
+                EventController.instance.DrawCard(Instantiate(cardPref));
         }
     }
 

@@ -120,4 +120,11 @@ public class EventController : singleton<EventController>
         if (onDiscardPhaseEnd!=null)
         onDiscardPhaseEnd();
     }
+
+    public event Action <card> onDrawCard;
+    public void DrawCard(card c)
+    {
+        if (onDrawCard!=null)
+        onDrawCard(c);
+    }
 }
