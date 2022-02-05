@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\UI\hand.cs" />
      <Compile Include="Assets\Scripts\UI\playZone.cs" />
      <Compile Include="Assets\Scripts\card.cs" />
+     <Compile Include="Assets\Scripts\cardType.cs" />
      <Compile Include="Assets\Scripts\mouseControl.cs" />
      <Compile Include="Assets\Scripts\singleton.cs" />
     <Reference Include="UnityEngine">

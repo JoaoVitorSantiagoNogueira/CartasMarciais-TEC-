@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class card : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int power;
+    public int priority;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    cardType type;
+
+    cardType[] followUps  = new cardType[3]; 
+
+    // Start is called before the first frame update
 
     public int getPower()
     {
-        return 3;
+        return power;
     }
 }
