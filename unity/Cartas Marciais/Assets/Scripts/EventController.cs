@@ -134,4 +134,11 @@ public class EventController : singleton<EventController>
         if (onRemoveHand!=null)
         onRemoveHand();
     }
+
+    public event Action <card> onCardPlayed;
+    public void cardPlayed(card c)
+    {
+        if (onCardPlayed!=null)
+        onCardPlayed(c);
+    }
 }

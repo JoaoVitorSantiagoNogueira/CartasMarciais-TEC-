@@ -42,6 +42,7 @@
      <Compile Include="Assets\Scripts\UI\DiscardPile.cs" />
      <Compile Include="Assets\Scripts\UI\buttonTextController.cs" />
      <Compile Include="Assets\Scripts\UI\cardZone.cs" />
+     <Compile Include="Assets\Scripts\UI\damageDisplay.cs" />
      <Compile Include="Assets\Scripts\UI\extendableZone.cs" />
      <Compile Include="Assets\Scripts\UI\hand.cs" />
      <Compile Include="Assets\Scripts\UI\playZone.cs" />

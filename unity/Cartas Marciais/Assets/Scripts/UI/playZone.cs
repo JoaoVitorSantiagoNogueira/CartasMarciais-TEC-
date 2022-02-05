@@ -22,7 +22,7 @@ public class playZone : cardZone
 
     public override void AddCard(card c)
     {
-        Debug.Log("AddCard");
+        EventController.instance.cardPlayed(c);
         c.transform.position = transform.position + Vector3.up*0.3f;
         base.AddCard(c);
     }

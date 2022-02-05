@@ -15,4 +15,9 @@ public class card : MonoBehaviour
     {
         
     }
+
+    public int getPower()
+    {
+        return 3;
+    }
 }
