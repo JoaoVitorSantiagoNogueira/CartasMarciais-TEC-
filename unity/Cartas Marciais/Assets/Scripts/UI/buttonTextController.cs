@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +24,14 @@ public class buttonTextController : MonoBehaviour
         EventController.instance.onPlayPhaseStart += SwitchLable;
         EventController.instance.onComboPhaseStart += SwitchLable;
         EventController.instance.onDiscardPhaseStart += SwitchLable;
+    }
+
+    void Destroy()
+    {
+        EventController.instance.onDrawPhaseStart -= SwitchLable;
+        EventController.instance.onPlayPhaseStart -= SwitchLable;
+        EventController.instance.onComboPhaseStart -= SwitchLable;
+        EventController.instance.onDiscardPhaseStart -= SwitchLable;
     }
 
     void SwitchLable()
