@@ -23,6 +23,12 @@ public class hand : cardZone
             GetCard(0).transform.position = dif + basePosition;
         }  
   }
+
+    public void OnDestroy()
+    {
+
+    }
+
   public override void release ()
     {
       if (selectedToMove)
@@ -87,7 +93,16 @@ public class hand : cardZone
       {
         basePosition = GetCard(0).transform.position = v + Vector3.up*0.3f;
       }
-      
+    }
+
+    public override void RemoveCard(int i)
+    {
+      base.RemoveCard(i);
+      if (!hasCard)
+        {
+          Destroy(this.gameObject);
+          EventController.instance.removeHand();
+        }
     }
 
 }

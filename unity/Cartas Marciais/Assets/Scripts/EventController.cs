@@ -127,4 +127,11 @@ public class EventController : singleton<EventController>
         if (onDrawCard!=null)
         onDrawCard(c);
     }
+
+    public event Action onRemoveHand;
+    public void removeHand()
+    {
+        if (onRemoveHand!=null)
+        onRemoveHand();
+    }
 }

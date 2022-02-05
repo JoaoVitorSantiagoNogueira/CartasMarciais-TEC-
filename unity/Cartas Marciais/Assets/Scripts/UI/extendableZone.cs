@@ -14,11 +14,13 @@ public class extendableZone : cardZone
     {
         cardCap = 10;
         EventController.instance.onDrawCard += AddCard;
+        EventController.instance.onRemoveHand += removeHand;
     }
 
     public void Delete()
     {
         EventController.instance.onDrawCard -= AddCard;
+        EventController.instance.onRemoveHand -= removeHand;
     }
 
     public override bool hasSpace()
@@ -33,7 +35,12 @@ public class extendableZone : cardZone
         hand cz = Instantiate(handSlot, transform);
         cardZoneList.Add(cz);
         cz.AddCard(cui);
+        arrangeCardPosition();
+    }
 
+    public void arrangeCardPosition()
+    {
+        //Debug.Log(cardZoneList.Count);
         for (int i=0; i<cardZoneList.Count;i++)
             cardZoneList[i].move(this.transform.position + Vector3.right * calculateOffset(i, cardZoneList.Count) +Vector3.up);
     }
@@ -44,6 +51,39 @@ public class extendableZone : cardZone
         float MAX = (float) max;
 
         return ((I+1-((MAX+1)/2))*3);
+    }
+
+    public override void RemoveCard(int i)
+    {
+    cardZone cz = cardZoneList[i];
+            Debug.Log(cardZoneList.Count);
+    cardZoneList.RemoveAt(i);
+            Debug.Log(cardZoneList.Count);
+    if (cz == null)
+    {
+        while (cz.getHasCard())
+            {
+                EventController.instance.discardCards(cz.moveCardFrom(0));
+            }
+        Destroy(cz);
+    }
+    }
+
+    public void removeHand ()
+    {
+        for (int i =0; i<cardZoneList.Count; i++)
+        {
+            if (cardZoneList[i]==null)
+            {
+                RemoveCard(i);
+            }
+            else if (cardZoneList[i].isQueuedToBeDestroyed())
+            {
+                RemoveCard(i);
+            }
+
+        }
+        arrangeCardPosition();
     }
 
     public override void release()
