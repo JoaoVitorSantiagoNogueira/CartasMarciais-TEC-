@@ -106,6 +106,7 @@ public class playZone : cardZone
         for (int i = cardList.Count-1; i >= 0; i--)
         {
             EventController.instance.cardResolve();
+            EventController.instance.playerAttack(GetCard(i).power);
             EventController.instance.discardCards(popCard(i));
         }
         combo_limit =-1;

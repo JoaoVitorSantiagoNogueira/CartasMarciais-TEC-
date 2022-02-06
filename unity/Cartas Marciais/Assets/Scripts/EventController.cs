@@ -154,4 +154,11 @@ public class EventController : singleton<EventController>
         if (onRequestCardDraw!=null)
         onRequestCardDraw(i);
     }
+
+    public event Action <int> onPlayerAttack;
+    public void playerAttack(int i)
+    {
+        if (onPlayerAttack!=null)
+        onPlayerAttack(i);
+    }
 }
