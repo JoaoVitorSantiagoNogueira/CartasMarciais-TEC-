@@ -21,7 +21,7 @@ public class Deck : hand
     {
         for (int j = 0; j < i; j++)
         {
-                EventController.instance.DrawCard(Instantiate(deckList[Random.Range(1, 6)]));
+                EventController.instance.DrawCard(Instantiate(deckList[Random.Range(0, 9)]));
         }
     }
 

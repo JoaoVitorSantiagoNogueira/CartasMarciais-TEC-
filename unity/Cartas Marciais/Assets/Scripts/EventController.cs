@@ -5,7 +5,7 @@ using System;
 
 public class EventController : singleton<EventController>
 {
-
+    public enemyBehaviour enemy;
     public Deck playerDeck;
     public playZone pz;
     int currentPhase;
@@ -174,5 +174,11 @@ public class EventController : singleton<EventController>
     {
         if ( onEnemyDamage!=null)
          onEnemyDamage(i);
+    }
+
+    public bool duel(card c)
+    {
+        return true;
+        //return card.beats(c, enemy.GetCard());
     }
 }

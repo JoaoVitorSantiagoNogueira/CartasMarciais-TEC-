@@ -124,4 +124,24 @@ public class cardType
     {
         return !(obj1 == obj2);
     }
+
+    public static bool beat(cardType a, cardType b)
+    {
+        if (a.b == button.attack)
+        {
+            if (b.b == button.move)
+            return true;
+        }
+        if (a.b == button.block)
+        {
+            if (b.b == button.attack)
+            return true;
+        }
+         if (a.b == button.move)
+         {
+            if (b.b == button.block)
+            return true;
+         }
+        return false;
+    }
 }

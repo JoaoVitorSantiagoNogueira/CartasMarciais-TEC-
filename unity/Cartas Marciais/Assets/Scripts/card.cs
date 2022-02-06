@@ -9,6 +9,16 @@ public class card : MonoBehaviour
     public int max_combo;
     public Vector3 basePosition;
 
+    public static bool beats(card a, card b)
+    { 
+        if (a.type != b.type)
+        return cardType.beat(a.type, b.type);
+        else
+        if (a.priority<b.priority)
+        return true;
+        return false;
+    }
+
     public char[] typeText;
     public char[] followUpText;
     Vector3 displayPosition = new Vector3(5, 5.5f, -2);

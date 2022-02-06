@@ -9,6 +9,8 @@ public class playZone : cardZone
     bool PlayPhase = false;
     bool ComboPhase = false;
 
+    bool PlayerWon;
+
 
     void Start()
     {
@@ -33,6 +35,10 @@ public class playZone : cardZone
         if (combo_limit == -1)
         {
             combo_limit = c.max_combo;
+            if (EventController.instance.duel(c))
+            {
+            // define que vc perdeu
+            }
         }
         else 
             combo_limit = (Math.Min(combo_limit-1, c.max_combo));
@@ -53,7 +59,7 @@ public class playZone : cardZone
         if (hasSpace())
         return true;
 
-        if (ComboPhase)
+        if (ComboPhase && PlayerWon)
         return cardList[cardList.Count-1].comboOk(c);
 
         return false;
@@ -61,17 +67,17 @@ public class playZone : cardZone
 
     public override void release()
     {
-        throw new System.NotImplementedException();
+        //todo
     }
 
     public override void mouseOver()
     {
-        throw new System.NotImplementedException();
+        //todo
     }
 
     public override void click()
     {
-        throw new System.NotImplementedException();
+        //todo
     }
 
     public void setPhasePlay(bool p)
