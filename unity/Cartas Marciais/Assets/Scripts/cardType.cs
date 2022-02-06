@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class cardType
 {
+
+    public cardType(string button, string input)
+    {
+        setInput(button, input);
+    }
     enum direction
     {
         high,
@@ -101,5 +106,22 @@ public class cardType
         return true;
         else
         return false;
+    }
+
+
+    public static bool operator ==(cardType obj1, cardType obj2)
+    {
+        bool match_buttons = ((obj1.b == obj2.b) ||  (obj1.b==button.any) ||  (obj2.b==button.any));
+        Debug.Log ("buttons" + (match_buttons).ToString());
+
+        bool match_direction = ((obj1.d == obj2.d) ||  (obj1.d==direction.any) ||  (obj2.d==direction.any));
+        Debug.Log ("direction" + (obj1.d).ToString() + (obj2.d).ToString());
+
+        return match_buttons && match_direction;
+    }
+
+    public static bool operator !=(cardType obj1, cardType obj2)
+    {
+        return !(obj1 == obj2);
     }
 }

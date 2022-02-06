@@ -30,6 +30,11 @@ public abstract class cardZone : MonoBehaviour
 
     }
 
+    public virtual bool acceptCard(card c)
+    {
+        return  hasSpace();
+    }
+
     public virtual bool getHasCard()
     {
         return hasCard;
@@ -44,6 +49,10 @@ public abstract class cardZone : MonoBehaviour
     public virtual void RemoveCard(int index)
     {
         cardList.RemoveAt(index);
+        if (cardList.Count <=0)
+        {
+            hasCard = false;
+        }
     }
 
     public card GetCard (int index)
@@ -51,10 +60,22 @@ public abstract class cardZone : MonoBehaviour
         return cardList[index];
     }
 
-    public card moveCardFrom (int index)
+    public bool moveCardFrom (int index, cardZone newOwner)
     {
-        card c = GetCard(index);
-        RemoveCard(index);
+        if (newOwner.acceptCard(GetCard(index)))
+        {
+            card c = GetCard(index);
+            newOwner.AddCard(c);        
+            RemoveCard(index);
+            return true;
+        }
+        else return false;
+    }
+
+    public card popCard(int i)
+    {
+        card c =  GetCard(i);
+        RemoveCard(i);
         return c;
     }
 

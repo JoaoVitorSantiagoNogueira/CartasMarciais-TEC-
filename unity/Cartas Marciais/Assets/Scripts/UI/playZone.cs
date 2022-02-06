@@ -9,7 +9,7 @@ public class playZone : cardZone
 
     void Start()
     {
-        cardCap = 1;
+        cardCap = 2;
         EventController.instance.onPlayPhaseStart += startPlay;
         EventController.instance.onComboPhaseEnd   += stopPlay;
     }
@@ -23,15 +23,19 @@ public class playZone : cardZone
     public override void AddCard(card c)
     {
         EventController.instance.cardPlayed(c);
-        c.transform.position = transform.position + Vector3.up*0.3f;
         base.AddCard(c);
+        c.transform.position = transform.position + Vector3.up*0.3f + (cardList.Count-1)* Vector3.right;
     }
 
-    public override bool hasSpace()
+    public override bool acceptCard(card c)
     {
-        if (base.hasSpace() && rightPhase) 
+        if (!rightPhase)
+        return false;
+        else if (hasSpace())
         return true;
-        else return false;
+        else {
+        return cardList[cardList.Count-1].comboOk(c);
+        }
     }
 
     public override void release()
@@ -57,7 +61,7 @@ public class playZone : cardZone
         else
             {
             GetComponent<Renderer>().material.SetColor ("_Color", Color.red);
-            EventController.instance.discardCards(moveCardFrom(0));
+            EventController.instance.discardCards(popCard(0));
             }
     }
 

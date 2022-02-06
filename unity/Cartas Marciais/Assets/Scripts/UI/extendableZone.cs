@@ -55,15 +55,15 @@ public class extendableZone : cardZone
 
     public override void RemoveCard(int i)
     {
+    Debug.Log("!REEMOOVE");
     cardZone cz = cardZoneList[i];
-            Debug.Log(cardZoneList.Count);
     cardZoneList.RemoveAt(i);
-            Debug.Log(cardZoneList.Count);
+    
     if (cz == null)
     {
         while (cz.getHasCard())
             {
-                EventController.instance.discardCards(cz.moveCardFrom(0));
+                EventController.instance.discardCards(cz.popCard(0));
             }
         Destroy(cz);
     }

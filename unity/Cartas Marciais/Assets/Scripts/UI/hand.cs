@@ -33,6 +33,8 @@ public class hand : cardZone
     {
       if (selectedToMove)
       {
+          selectedToMove = false; 
+          this.selectedMousePosition = Vector3.zero;
         if (hasCard)
         {
           int layerMask = LayerMask.GetMask("PlayerA");
@@ -43,24 +45,16 @@ public class hand : cardZone
                   cardZone cz = (cardZone) hit.transform.gameObject.GetComponent<cardZone>();
                   if (cz != null)
                   {
-                    if (cz.hasSpace())
+                    if (moveCardFrom(0,cz))
                     {
-                      selectedToMove = false; 
-                      hasCard= false;
-                      cz.AddCard(this.moveCardFrom(0));
                       return;
                     }
-
                   }
               }
+            GetCard(0).transform.position = basePosition;
         }
-          // if not in a place where you can change zones return to base position
-          Debug.Log("release");
-          selectedToMove = false; 
-              this.selectedMousePosition = Vector3.zero;
-              GetCard(0).transform.position = basePosition;
+          
         }
-      
     }
 
   public override void click ()
@@ -98,6 +92,7 @@ public class hand : cardZone
     public override void RemoveCard(int i)
     {
       base.RemoveCard(i);
+      Debug.Log(hasCard);
       if (!hasCard)
         {
           Destroy(this.gameObject);
