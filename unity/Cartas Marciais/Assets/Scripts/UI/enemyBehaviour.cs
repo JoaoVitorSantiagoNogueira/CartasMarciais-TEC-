@@ -5,14 +5,13 @@ using UnityEngine;
 public class enemyBehaviour : MonoBehaviour
 {
     public card [] knownCards;
-    void Start()
-    {
-        EventController.instance.onPlayPhaseEnd += CardContest;
-    }
+    public card inDisplay;
 
     // Update is called once per frame
-    void CardContest ()
+    public card GetCard ()
     {
-        
+        inDisplay = knownCards[Random.Range(0, knownCards.Length)];
+        //Instantiate[]
+        return inDisplay;
     }
 }
