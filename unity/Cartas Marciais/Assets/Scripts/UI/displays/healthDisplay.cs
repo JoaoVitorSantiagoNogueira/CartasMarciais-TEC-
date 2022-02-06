@@ -7,6 +7,7 @@ public class healthDisplay : display
     public bool isEnemy;
     public override void Start()
     {
+        
         base.Start();
         if (isEnemy)
         {
@@ -28,7 +29,7 @@ public class healthDisplay : display
     }
 
     // Update is called once per frame
-    void showHealth(int i)
+    public void showHealth(int i)
     {
         updateDisplay(i.ToString());
     }
