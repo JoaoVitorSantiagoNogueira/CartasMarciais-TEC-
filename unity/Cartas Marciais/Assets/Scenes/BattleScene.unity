@@ -1932,6 +1932,7 @@ GameObject:
   - component: {fileID: 1936341313}
   - component: {fileID: 1936341312}
   - component: {fileID: 1936341314}
+  - component: {fileID: 1936341315}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -1979,6 +1980,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDeck: {fileID: 82227733}
   pz: {fileID: 822706960}
+--- !u!114 &1936341315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936341311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f98864bf1ac43547ae02cc224811d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 6
+  enemyHealth: 6
 --- !u!1 &1961182979
 GameObject:
   m_ObjectHideFlags: 0

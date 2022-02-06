@@ -161,4 +161,18 @@ public class EventController : singleton<EventController>
         if (onPlayerAttack!=null)
         onPlayerAttack(i);
     }
+
+    public event Action <int> onPlayerDamage;
+    public void playerDamage(int i)
+    {
+        if ( onPlayerDamage!=null)
+         onPlayerDamage(i);
+    }
+
+    public event Action <int> onEnemyDamage;
+    public void enemyDamage(int i)
+    {
+        if ( onEnemyDamage!=null)
+         onEnemyDamage(i);
+    }
 }
