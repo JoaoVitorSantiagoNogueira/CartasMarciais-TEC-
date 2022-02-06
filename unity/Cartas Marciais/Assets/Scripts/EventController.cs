@@ -141,4 +141,11 @@ public class EventController : singleton<EventController>
         if (onCardPlayed!=null)
         onCardPlayed(c);
     }
+
+    public event Action onCardResolve;
+    public void cardResolve()
+    {
+        if (onCardResolve!=null)
+        onCardResolve();
+    }
 }

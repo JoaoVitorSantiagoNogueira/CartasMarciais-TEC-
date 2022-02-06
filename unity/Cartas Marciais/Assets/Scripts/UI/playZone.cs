@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class playZone : cardZone
 {
 
+    int combo_limit = -1;
     bool rightPhase = false;
 
     void Start()
     {
-        cardCap = 2;
+        cardCap = 1;
         EventController.instance.onPlayPhaseStart += startPlay;
         EventController.instance.onComboPhaseEnd   += stopPlay;
     }
@@ -22,6 +23,13 @@ public class playZone : cardZone
 
     public override void AddCard(card c)
     {
+        if (combo_limit == -1)
+        {
+            combo_limit = c.max_combo;
+        }
+        else 
+            combo_limit = (Math.Min(combo_limit-1, c.max_combo));
+
         EventController.instance.cardPlayed(c);
         base.AddCard(c);
         c.transform.position = transform.position + Vector3.up*0.3f + (cardList.Count-1)* Vector3.right;
@@ -31,11 +39,15 @@ public class playZone : cardZone
     {
         if (!rightPhase)
         return false;
-        else if (hasSpace())
+
+        if (combo_limit==0)
+        return false;
+
+        if (hasSpace())
         return true;
-        else {
+        Debug.Log("até aqui fi");
         return cardList[cardList.Count-1].comboOk(c);
-        }
+
     }
 
     public override void release()
@@ -61,7 +73,12 @@ public class playZone : cardZone
         else
             {
             GetComponent<Renderer>().material.SetColor ("_Color", Color.red);
-            EventController.instance.discardCards(popCard(0));
+            for (int i = cardList.Count-1; i >= 0; i--)
+            {
+                EventController.instance.cardResolve();
+                EventController.instance.discardCards(popCard(i));
+            }
+                combo_limit =-1;
             }
     }
 

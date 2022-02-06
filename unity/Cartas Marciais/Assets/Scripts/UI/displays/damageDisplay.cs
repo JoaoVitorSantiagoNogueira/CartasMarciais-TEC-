@@ -1,22 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class damageDisplay : MonoBehaviour
+public class damageDisplay : display
 {
     // Start is called before the first frame update
-    Text textObj;
     int totalDamage;
-    void Start()
+    public override void Start()
     {
-        textObj = GetComponent<Text>();
+        base.Start();
         EventController.instance.onPlayPhaseStart += resetDamage;
         EventController.instance.onCardPlayed += cardPlayed;
     }
 
-    void Destroy()
+    public void Destroy()
     {
+        base.Start();
         EventController.instance.onPlayPhaseStart -= resetDamage;
         EventController.instance.onCardPlayed -= cardPlayed;
     }
@@ -47,7 +46,7 @@ public class damageDisplay : MonoBehaviour
 
     public void updateDisplay()
     {
-        textObj.text = totalDamage.ToString();
+        base.updateDisplay(totalDamage.ToString());
     }
 
 }
