@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TelaInicial.unity
+    guid: 3bde9b1365539df448e3c70c471cc58c
+  - enabled: 1
+    path: Assets/Scenes/BattleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/DeckView.unity
+    guid: 3dd785522812d0b448c4ba0ff87f3247
+  - enabled: 1
+    path: Assets/Scenes/Historia.unity
+    guid: f03da647a4412d3419f55708d7a2e675
   m_configObjects: {}
