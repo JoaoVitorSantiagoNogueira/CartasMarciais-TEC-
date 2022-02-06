@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Deck : hand
 {
-    public card cardPref;
+    public card [] deckList;
 
     public override void Start()
     {
@@ -17,13 +17,11 @@ public class Deck : hand
         EventController.instance.onRequestCardDraw -= DealCards;
     }
 
-
-
     public void DealCards(int i)
     {
         for (int j = 0; j < i; j++)
         {
-                EventController.instance.DrawCard(Instantiate(cardPref));
+                EventController.instance.DrawCard(Instantiate(deckList[Random.Range(1, 6)]));
         }
     }
 
