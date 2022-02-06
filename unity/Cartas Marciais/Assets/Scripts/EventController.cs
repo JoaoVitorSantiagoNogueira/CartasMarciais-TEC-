@@ -58,7 +58,6 @@ public class EventController : singleton<EventController>
     public event Action<card> onDiscardCards;//change to list
     public void discardCards(card lc)
     {
-                Debug.Log("discardSomeCards");
         if (onDiscardCards != null)
         {
             onDiscardCards(lc);
@@ -147,5 +146,12 @@ public class EventController : singleton<EventController>
     {
         if (onCardResolve!=null)
         onCardResolve();
+    }
+
+    public event Action <int> onRequestCardDraw;
+    public void requestCardDraw(int i)
+    {
+        if (onRequestCardDraw!=null)
+        onRequestCardDraw(i);
     }
 }

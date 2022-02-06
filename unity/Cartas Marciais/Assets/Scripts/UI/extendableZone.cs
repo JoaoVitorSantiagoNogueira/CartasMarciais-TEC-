@@ -8,17 +8,22 @@ public class extendableZone : cardZone
 
     public hand handSlot;
 
+    int handSize=5;
+    int extraDraws=0;
+
     protected List<hand> cardZoneList = new List<hand>();
 
     public void Start()
     {
         cardCap = 10;
+        EventController.instance.onDrawPhaseStart += startPhase;
         EventController.instance.onDrawCard += AddCard;
         EventController.instance.onRemoveHand += removeHand;
     }
 
     public void Delete()
     {
+        EventController.instance.onDrawPhaseStart -= startPhase;
         EventController.instance.onDrawCard -= AddCard;
         EventController.instance.onRemoveHand -= removeHand;
     }
@@ -55,7 +60,6 @@ public class extendableZone : cardZone
 
     public override void RemoveCard(int i)
     {
-    Debug.Log("!REEMOOVE");
     cardZone cz = cardZoneList[i];
     cardZoneList.RemoveAt(i);
     
@@ -84,6 +88,11 @@ public class extendableZone : cardZone
 
         }
         arrangeCardPosition();
+    }
+
+    public void startPhase()
+    {
+        EventController.instance.requestCardDraw(handSize - cardZoneList.Count +extraDraws);
     }
 
     public override void release()

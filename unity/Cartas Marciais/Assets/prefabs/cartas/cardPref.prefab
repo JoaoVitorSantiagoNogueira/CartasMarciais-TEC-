@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 337237695462169400}
   - component: {fileID: 337237695462169401}
   - component: {fileID: 337237695462169402}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cardPref
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &337237695462169401
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -108,3 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 6
   priority: 4
+  max_combo: 1
+  basePosition: {x: 0, y: 0, z: 0}
+  typeText: 61006800
+  followUpText: 6d006c0061006d0061006800

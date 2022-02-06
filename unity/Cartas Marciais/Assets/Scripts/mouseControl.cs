@@ -5,6 +5,8 @@ using UnityEngine;
 public class mouseControl : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    card currentlyShowed;
     void Start()
     {
     }
@@ -23,6 +25,27 @@ public class mouseControl : MonoBehaviour
                 if (cu != null)
                 {
                    cu.click();
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (currentlyShowed != null)
+            {
+                currentlyShowed.returnToPosition();
+                currentlyShowed = null;
+            }
+            else
+            {
+                int cardLayerMask = LayerMask.GetMask("Card");
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, cardLayerMask))
+                {
+                  currentlyShowed = (card) hit.transform.gameObject.GetComponent<card>();
+                    if (currentlyShowed != null)
+                    {
+                     currentlyShowed.zoomToPlayer();
+                    }
                 }
             }
         }

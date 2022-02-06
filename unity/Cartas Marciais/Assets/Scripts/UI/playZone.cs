@@ -6,19 +6,26 @@ public class playZone : cardZone
 {
 
     int combo_limit = -1;
-    bool rightPhase = false;
+    bool PlayPhase = false;
+    bool ComboPhase = false;
+
 
     void Start()
     {
         cardCap = 1;
         EventController.instance.onPlayPhaseStart += startPlay;
-        EventController.instance.onComboPhaseEnd   += stopPlay;
+        EventController.instance.onPlayPhaseEnd   += stopPlay;
+        EventController.instance.onComboPhaseStart += startCombo;
+        EventController.instance.onComboPhaseEnd   += stopCombo;
+
     }
 
     void Destroy()
     {
         EventController.instance.onPlayPhaseStart -= startPlay;
-        EventController.instance.onPlayPhaseEnd   -= stopPlay ;
+        EventController.instance.onPlayPhaseEnd   -= stopPlay;
+        EventController.instance.onComboPhaseStart -= startCombo;
+        EventController.instance.onComboPhaseEnd   -= stopCombo;
     }
 
     public override void AddCard(card c)
@@ -37,7 +44,7 @@ public class playZone : cardZone
 
     public override bool acceptCard(card c)
     {
-        if (!rightPhase)
+        if (!(PlayPhase||ComboPhase))
         return false;
 
         if (combo_limit==0)
@@ -45,9 +52,11 @@ public class playZone : cardZone
 
         if (hasSpace())
         return true;
-        Debug.Log("até aqui fi");
+
+        if (ComboPhase)
         return cardList[cardList.Count-1].comboOk(c);
 
+        return false;
     }
 
     public override void release()
@@ -65,30 +74,41 @@ public class playZone : cardZone
         throw new System.NotImplementedException();
     }
 
-    public void setPhase(bool p)
+    public void setPhasePlay(bool p)
     {
-        rightPhase = p;
+        PlayPhase = p;
         if (p)
             GetComponent<Renderer>().material.SetColor ("_Color", Color.blue);
         else
             {
             GetComponent<Renderer>().material.SetColor ("_Color", Color.red);
-            for (int i = cardList.Count-1; i >= 0; i--)
-            {
-                EventController.instance.cardResolve();
-                EventController.instance.discardCards(popCard(i));
-            }
-                combo_limit =-1;
             }
     }
 
     public void startPlay ()
     {
-        setPhase(true);
+        setPhasePlay(true);
     }
 
     public void stopPlay ()
     {
-        setPhase (false);
+        setPhasePlay(false);
     } 
+
+    public void startCombo()
+    {
+        ComboPhase = true;
+    }
+
+    public void stopCombo()
+    {
+        ComboPhase = false;
+        for (int i = cardList.Count-1; i >= 0; i--)
+        {
+            EventController.instance.cardResolve();
+            EventController.instance.discardCards(popCard(i));
+        }
+        combo_limit =-1;
+
+    }
 }

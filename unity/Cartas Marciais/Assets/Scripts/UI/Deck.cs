@@ -5,28 +5,23 @@ using UnityEngine;
 public class Deck : hand
 {
     public card cardPref;
-    
-    public hand [] handSlots;
-
-    
 
     public override void Start()
     {
         base.Start();
-        EventController.instance.onDrawPhaseStart += DealNewHand;
+        EventController.instance.onRequestCardDraw += DealCards;
     }
 
     public void Destroy()
     {
-        EventController.instance.onDrawPhaseStart -= DealNewHand;
+        EventController.instance.onRequestCardDraw -= DealCards;
     }
 
 
 
-    public void DealNewHand()
+    public void DealCards(int i)
     {
-        Debug.Log("DealNewHand");
-        for (int i = 0; i < 3; i++)
+        for (int j = 0; j < i; j++)
         {
                 EventController.instance.DrawCard(Instantiate(cardPref));
         }

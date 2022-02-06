@@ -11,10 +11,10 @@ public class buttonTextController : MonoBehaviour
     int i = -1;
 
     static string[] expression = new string[] {
-        "To Play",
-        "To Combo",
-        "To Discard",
-        "To Draw"
+        "Draw > Play",
+        "Play > Combo",
+        "Combo > Discard",
+        "Discard > Draw"
     };
 
     void Start()

@@ -232,12 +232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPref: {fileID: 337237695462169402, guid: 936b51ff91d228c48a1df028b206a41f, type: 3}
-  handSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!65 &82227734
 BoxCollider:
   m_ObjectHideFlags: 0
