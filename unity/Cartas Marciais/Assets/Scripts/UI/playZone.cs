@@ -101,6 +101,10 @@ public class playZone : cardZone
     public void stopPlay ()
     {
         setPhasePlay(false);
+        if (!PlayerWon)
+        {
+            EventController.instance.playerLost();
+        }
     } 
 
     public void startCombo()
@@ -114,6 +118,7 @@ public class playZone : cardZone
         for (int i = cardList.Count-1; i >= 0; i--)
         {
             EventController.instance.cardResolve();
+            if (PlayerWon)
             EventController.instance.playerAttack(GetCard(i).power);
             EventController.instance.discardCards(popCard(i));
         }

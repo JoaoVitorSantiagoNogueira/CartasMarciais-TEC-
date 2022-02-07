@@ -2562,8 +2562,8 @@ MonoBehaviour:
   hd:
   - {fileID: 1819917687}
   - {fileID: 861781641}
-  playerHealth: 6
-  enemyHealth: 6
+  playerHealth: 30
+  enemyHealth: 30
 --- !u!1 &1961182979
 GameObject:
   m_ObjectHideFlags: 0

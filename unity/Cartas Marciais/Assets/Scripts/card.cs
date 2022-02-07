@@ -18,7 +18,6 @@ public class card : MonoBehaviour
 
     public static bool beats(card a, card b)
     { 
-        return true;
         if (a.c_type.GetType() != b.c_type.GetType())
         return cardType.beat(a.c_type, b.c_type);
         else

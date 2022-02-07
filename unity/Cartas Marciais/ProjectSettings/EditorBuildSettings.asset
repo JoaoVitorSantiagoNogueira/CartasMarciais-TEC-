@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Historia.unity
     guid: f03da647a4412d3419f55708d7a2e675
+  - enabled: 1
+    path: Assets/Scenes/lose_screen.unity
+    guid: 934007e98b07ee14caf4922498f7834d
+  - enabled: 1
+    path: Assets/Scenes/win_screen.unity
+    guid: c21bff7d7b0ef8c488b9d19c2ebe3c30
   m_configObjects: {}

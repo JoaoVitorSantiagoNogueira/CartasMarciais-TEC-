@@ -176,10 +176,21 @@ public class EventController : singleton<EventController>
          onEnemyDamage(i);
     }
 
+    public event Action onPlayerLost;
+    public void playerLost()
+    {
+        if ( onPlayerLost!=null)
+        onPlayerLost();
+    }
+
+    public event Action <int> onPlayerDamageDisplayUpdate;
+    public void playerDamageDisplayUpdate(int i)
+    {
+        if (onPlayerDamageDisplayUpdate!=null)
+        onPlayerDamageDisplayUpdate(i);
+    }
     public bool duel(card c)
     {
-        card c2 = enemy.GetCard();
-        Debug.Log(c2.c_type);
-        return card.beats(c, c2);
+        return card.beats(c, enemy.GetCard());
     }
 }

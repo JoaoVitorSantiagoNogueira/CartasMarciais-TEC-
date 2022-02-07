@@ -14,7 +14,7 @@ public class healthDisplay : display
             EventController.instance.onEnemyDamage += showHealth;
         }
         else
-            EventController.instance.onPlayerDamage += showHealth;
+            EventController.instance.onPlayerDamageDisplayUpdate += showHealth;
     }
 
     public void Destroy()
@@ -25,12 +25,13 @@ public class healthDisplay : display
             EventController.instance.onEnemyDamage += showHealth;
         }
         else
-            EventController.instance.onPlayerDamage += showHealth;
+            EventController.instance.onPlayerDamageDisplayUpdate += showHealth;
     }
 
     // Update is called once per frame
     public void showHealth(int i)
     {
+        Debug.Log(i);
         updateDisplay(i.ToString());
     }
 }

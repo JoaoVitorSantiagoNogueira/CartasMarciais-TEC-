@@ -10,8 +10,13 @@ public class enemyBehaviour : MonoBehaviour
     public void Start()
     {
         EventController.instance.onPlayPhaseEnd += reset;
+        EventController.instance.onPlayerLost += DamagePlayer;
     }
 
+    public void DamagePlayer()
+    {
+        EventController.instance.playerDamage(inDisplay.power);
+    }
 
     // Update is called once per frame
     public card GetCard ()
@@ -22,8 +27,7 @@ public class enemyBehaviour : MonoBehaviour
 
     public void reset()
     {
-        Debug.Log("check");
-        EventController.instance.discardCards(inDisplay);
+        Destroy(inDisplay.gameObject);
         
     }
 }
