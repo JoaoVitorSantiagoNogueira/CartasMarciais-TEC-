@@ -1202,6 +1202,7 @@ GameObject:
   - component: {fileID: 822706962}
   - component: {fileID: 822706961}
   - component: {fileID: 822706960}
+  - component: {fileID: 822706965}
   m_Layer: 8
   m_Name: Battle Zone
   m_TagString: Untagged
@@ -1297,6 +1298,23 @@ Transform:
   m_Father: {fileID: 1530914275}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &822706965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822706959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43753b4532d3b234d801a1c3a7f25c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knownCards:
+  - {fileID: 337237695462169402, guid: 5935215995243594ba7b5ed48174e441, type: 3}
+  - {fileID: 337237695462169402, guid: 2943025f07af6044b89f0e764a7f6b9e, type: 3}
+  - {fileID: 337237695462169402, guid: aa9b8e73ebd50f94fbba84353d736c05, type: 3}
+  inDisplay: {fileID: 0}
 --- !u!1 &861781639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2526,6 +2544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6b1a40c6cdc884093595448835c4cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 822706965}
   playerDeck: {fileID: 82227733}
   pz: {fileID: 822706960}
 --- !u!114 &1936341315
