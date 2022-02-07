@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class cardType
 {
-
     public cardType(string button, string input)
     {
         setInput(button, input);
@@ -106,6 +105,11 @@ public class cardType
         return true;
         else
         return false;
+    }
+
+    public int getButton()
+    {
+        return (int) b;
     }
 
 

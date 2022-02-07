@@ -37,8 +37,10 @@ public class playZone : cardZone
             combo_limit = c.max_combo;
             if (EventController.instance.duel(c))
             {
-            // define que vc perdeu
+                PlayerWon = true;
             }
+                else 
+                PlayerWon = false;
         }
         else 
             combo_limit = (Math.Min(combo_limit-1, c.max_combo));

@@ -178,7 +178,8 @@ public class EventController : singleton<EventController>
 
     public bool duel(card c)
     {
-        return true;
-        //return card.beats(c, enemy.GetCard());
+        card c2 = enemy.GetCard();
+        Debug.Log(c2.c_type);
+        return card.beats(c, c2);
     }
 }
